@@ -1,0 +1,130 @@
+/* src/assets/css/main.css */
+@import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200");
+
+/* Reset */
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Global Styles */
+body {
+  background: #000; /* Fond noir pour tout le site */
+  color: #ffffff; /* Texte en blanc */
+  font-size: 14pt;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  line-height: 1.85em;
+  font-weight: 300;
+}
+
+a {
+  color: #61dafb; /* Lien de couleur bleu clair */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #ffffff; /* Lien blanc au survol */
+  text-decoration: none;
+}
+
+/* Container */
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Header */
+#header {
+  background-color: #000;
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+  box-shadow: inset 0px -1px 0px 0px #51575a;
+}
+
+#header h1 {
+  font-size: 2.5em;
+  margin: 20px;
+}
+
+#header nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-left: 20px;
+}
+
+#header nav a:hover {
+  color: #61dafb;
+}
+
+/* Banner */
+#banner {
+  padding: 50px 0;
+  background-color: #000;
+  text-align: center;
+  color: #ffffff;
+}
+
+#banner h2 {
+  font-size: 2.5em;
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+
+#banner p {
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+
+/* Sections */
+section {
+  padding: 40px 20px;
+  color: #ffffff;
+}
+
+/* Boutons */
+.button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #ffffff;
+  border: 1px solid #555;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+/* Footer */
+#footer {
+  padding: 30px 0;
+  background-color: #000;
+  color: #999;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+
+#footer a {
+  color: #61dafb;
+}
+
+#footer a:hover {
+  color: #ffffff;
+}
