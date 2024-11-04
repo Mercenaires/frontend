@@ -11,7 +11,11 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
+<<<<<<< HEAD
     "react-scripts": "^3.0.1",
+=======
+    "react-scripts": "5.0.1",
+>>>>>>> 8453907 (Mise à jour de la page de recherche et intégration des nouvelles fonctionnalités)
     "web-vitals": "^2.1.4"
   },
   "scripts": {
