@@ -2,42 +2,62 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/main.css';
-import Navbar from '../components/Navbar';
 
 function LandingPage() {
-    return (
-        <div id="page-wrapper">
-            {/* Banner */}
-            <section id="banner">
-                <header>
-                    <h2>Bienvenue sur notre site</h2>
-                    <p>Recommandations de jeux basées sur votre profil MBTI</p>
-                </header>
-                <Link to="/search">
-                    <button style={{ marginTop: '20px', padding: '10px 20px', fontSize: '16px' }}>
-                        Rechercher un jeu
-                    </button>
-                </Link>
-            </section>
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Header */}
+      <header className="bg-black p-6 shadow-lg">
+        <h1 className="text-4xl font-bold">
+          <a href="/">Mercenaires</a>
+        </h1>
+        <nav className="mt-4">
+          <ul className="flex space-x-4">
+            <li><a href="#about" className="hover:text-gray-300">À propos</a></li>
+            <li><a href="#features" className="hover:text-gray-300">Fonctionnalités</a></li>
+            <li><a href="#contact" className="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
 
-            {/* About Section */}
-            <section id="about" className="container">
-                <header>
-                    <h2>À propos de nous</h2>
-                </header>
-                <p>
-                    Mercenaires est une plateforme dédiée à vous proposer des recommandations de jeux vidéo basées sur votre personnalité. En utilisant le modèle MBTI, nous trouvons les jeux qui correspondent le mieux à vos préférences et styles de jeu.
-                </p>
-            </section>
-
-            {/* Footer */}
-            <footer id="footer">
-                <ul className="copyright">
-                    <li>&copy; Mercenaires. Design : <a href="https://html5up.net">HTML5 UP</a>.</li>
-                </ul>
-            </footer>
+      {/* Banner */}
+      <section className="bg-black py-16 text-center">
+        <header>
+          <h2 className="text-5xl font-extrabold mb-4">Bienvenue sur notre site</h2>
+          <p className="text-xl">Recommandations de jeux basées sur votre profil MBTI</p>
+        </header>
+        <div className="mt-8 space-x-4">
+          <Link to="/search">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+              Rechercher un jeu
+            </button>
+          </Link>
+          <Link to="/mbti">
+            <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+              Découvrir votre profil MBTI
+            </button>
+          </Link>
         </div>
-    );
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="container mx-auto py-16 px-6">
+        <header>
+          <h2 className="text-3xl font-semibold">À propos de nous</h2>
+        </header>
+        <p className="mt-4">
+          Mercenaires est une plateforme dédiée à vous proposer des recommandations de jeux vidéo basées sur votre personnalité. En utilisant le modèle MBTI, nous trouvons les jeux qui correspondent le mieux à vos préférences et styles de jeu.
+        </p>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 p-6 text-center text-gray-400">
+        <p>&copy; Mercenaires. Design inspiré par <a href="https://html5up.net" className="text-blue-400 hover:text-blue-500">HTML5 UP</a>.</p>
+      </footer>
+    </div>
+  );
 }
 
 export default LandingPage;
+
+
