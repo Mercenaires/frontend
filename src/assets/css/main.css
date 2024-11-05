@@ -139,18 +139,24 @@ section {
   box-shadow: inset 0px -1px 0px 0px #51575a;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-brand h1 {
   font-size: 2.5em;
   margin: 0;
 }
 
 .navbar-links {
-  list-style-type: none;
   display: flex;
+  list-style: none;
+  margin-left: 20px;
 }
 
 .navbar-links li {
-  margin-left: 20px;
+  margin-right: 15px;
 }
 
 .navbar-links a {
