@@ -3,8 +3,9 @@ import Papa from 'papaparse';
 import csvFilePath from '../assets/data/games_mbti.csv';
 
 function MBTIPage() {
-  const [mbtiType, setMbtiType] = useState('');
-    const [groupedGames, setGroupedGames] = useState({}); // Store games grouped by MBTI type
+    const [mbtiType, setMbtiType] = useState('');
+    const [groupedGames, setGroupedGames] = useState({});
+    const [originalGroupedGames, setOriginalGroupedGames] = useState({}); // Store original data for reset
 
     useEffect(() => {
         fetch(csvFilePath)
@@ -13,6 +14,7 @@ function MBTIPage() {
                 const parsedData = Papa.parse(text, { header: true }).data;
                 const grouped = groupGamesByMBTI(parsedData);
                 setGroupedGames(grouped);
+                setOriginalGroupedGames(grouped); // Save original grouped data
             });
     }, []);
 
@@ -30,18 +32,12 @@ function MBTIPage() {
 
     const handleSearch = () => {
         if (mbtiType) {
-            // Filter the grouped games by the selected MBTI type
-            const filtered = { [mbtiType]: groupedGames[mbtiType] || [] };
+            // Use the original data to filter
+            const filtered = { [mbtiType]: originalGroupedGames[mbtiType] || [] };
             setGroupedGames(filtered);
         } else {
-            // Reset to show all grouped games if no MBTI type is entered
-            fetch(csvFilePath)
-                .then((response) => response.text())
-                .then((text) => {
-                    const parsedData = Papa.parse(text, { header: true }).data;
-                    const grouped = groupGamesByMBTI(parsedData);
-                    setGroupedGames(grouped);
-                });
+            // Reset to show all games if no MBTI type is entered
+            setGroupedGames(originalGroupedGames);
         }
     };
 
@@ -81,5 +77,3 @@ function MBTIPage() {
 }
 
 export default MBTIPage;
-
-
