@@ -6,20 +6,7 @@ import '../assets/css/main.css';
 function LandingPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Header */}
-      <header className="bg-black p-6 shadow-lg">
-        <h1 className="text-4xl font-bold">
-          <a href="/">Mercenaires</a>
-        </h1>
-        <nav className="mt-4">
-          <ul className="flex space-x-4">
-            <li><a href="#about" className="hover:text-gray-300">À propos</a></li>
-            <li><a href="#features" className="hover:text-gray-300">Fonctionnalités</a></li>
-            <li><a href="#contact" className="hover:text-gray-300">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-
+      
       {/* Banner */}
       <section className="bg-black py-16 text-center">
         <header>
