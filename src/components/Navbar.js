@@ -7,7 +7,7 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <h1 class="text-4xl font-bold"><a href="/">Mercenaires</a></h1>
+                <h1 class="text-4xl font-bold"><a href="/">MBTInGames</a></h1>
             </div>
             <ul className="navbar-links">
                 <li><a href="#about">À propos</a></li>
