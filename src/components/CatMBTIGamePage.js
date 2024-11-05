@@ -1,3 +1,5 @@
+
+/*
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import csvFilePath from '../assets/data/games_mbti.csv';
@@ -81,3 +83,4 @@ function CatMBTIGamePage() {
 }
 
 export default CatMBTIGamePage;
+*/
