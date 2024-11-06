@@ -1,4 +1,10 @@
 # Getting Started with Create React App
+# Nom du projet
+
+![npm version](https://img.shields.io/npm/v/mercenaires-frontend.svg)
+![build status](https://img.shields.io/github/actions/workflow/status/Mercenaires/frontend/frontend.yml)
+![license](https://img.shields.io/github/license/Mercenaires/frontend)
+
 
 This project was bootstrapped with Create React App.
 
