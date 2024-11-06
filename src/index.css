@@ -9,12 +9,9 @@
   }
 }
 
+/* Animation pour le blob */
 .animated-wrapper {
-  animation-name: move-wrapper;
-  animation-duration: 25s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
+  animation: move-wrapper 25s ease-in-out infinite;
   position: absolute;
 }
 
@@ -30,6 +27,7 @@
   }
 }
 
+/* Animation Fade-in */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -42,4 +40,3 @@
 .animate-fade-in {
   animation: fade-in 1s ease-out forwards;
 }
-
