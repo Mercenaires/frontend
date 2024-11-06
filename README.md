@@ -1,4 +1,9 @@
 # Getting Started with Create React App
+# Nom du projet
+
+![npm version](https://img.shields.io/npm/v/nom-du-paquet.svg)
+![build status](https://img.shields.io/github/actions/workflow/status/utilisateur/nom-du-projet/test.yml)
+![license](https://img.shields.io/github/license/utilisateur/nom-du-projet)
 
 This project was bootstrapped with Create React App.
 
