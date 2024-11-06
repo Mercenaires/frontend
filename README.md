@@ -2,7 +2,7 @@
 # Nom du projet
 
 ![npm version](https://img.shields.io/npm/v/mercenaires-frontend.svg)
-![build status](https://img.shields.io/github/actions/workflow/status/Mercenaires/frontend/test.yml)
+![build status](https://img.shields.io/github/actions/workflow/status/Mercenaires/frontend/frontend.yml)
 ![license](https://img.shields.io/github/license/Mercenaires/frontend)
 
 
