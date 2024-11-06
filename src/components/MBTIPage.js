@@ -11,11 +11,17 @@ function MBTIPage() {
         fetch(csvFilePath)
             .then((response) => response.text())
             .then((text) => {
-                const parsedData = Papa.parse(text, { header: true }).data;
-                const grouped = groupGamesByMBTI(parsedData);
-                setGroupedGames(grouped);
-                setOriginalGroupedGames(grouped); // Save original grouped data
-            });
+                try {
+                    const parsedData = Papa.parse(text, { header: true }).data;
+                    const grouped = groupGamesByMBTI(parsedData);
+                    setGroupedGames(grouped);
+                    setOriginalGroupedGames(grouped);
+                } catch (error) {
+                    console.error("Error parsing CSV data:", error);
+                }
+            })
+            .catch(error => console.error("Error fetching CSV file:", error));
+
     }, []);
 
     // Helper function to group games by MBTI type
