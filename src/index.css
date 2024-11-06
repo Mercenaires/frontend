@@ -9,7 +9,7 @@
   }
 }
 
-/* Animation pour le blob */
+/* Wrapper pour l'animation du blob en mouvement */
 .animated-wrapper {
   animation: move-wrapper 25s ease-in-out infinite;
   position: absolute;
@@ -22,7 +22,7 @@
   50% {
     transform: translate(60vw, 0vh) rotate(150deg) scale(1.2);
   }
-  to {
+  100% {
     transform: translate(40vw, 40vh) rotate(0deg) scale(0.8);
   }
 }
@@ -39,4 +39,43 @@
 
 .animate-fade-in {
   animation: fade-in 1s ease-out forwards;
+}
+
+/* Animation Fade-out */
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fade-out {
+  animation: fade-out 1s ease-out forwards;
+}
+
+/* Style pour le blob animé */
+.moving-background {
+  animation: move-bg 30s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+@keyframes move-bg {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-5%) translateY(-5%) scale(1.05);
+  }
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
 }
