@@ -8,10 +8,12 @@ function MBTIPage() {
     const [filteredGames, setFilteredGames] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
+
     useEffect(() => {
         fetch(csvFilePath)
             .then((response) => response.text())
             .then((text) => {
+
                 const parsedData = Papa.parse(text, { header: true }).data;
 
                 // Regrouper les jeux par type MBTI
@@ -48,6 +50,7 @@ function MBTIPage() {
     return (
         <div data-theme="night" className="min-h-screen bg-gray-900 text-white p-6">
             <h2 className="text-3xl font-bold mb-8">Recommandations de jeux par profil MBTI</h2>
+
 
             {/* Barre de recherche */}
             <div className="mb-8">
