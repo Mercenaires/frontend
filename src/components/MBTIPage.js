@@ -94,7 +94,7 @@ function MBTIPage() {
                                 <div className="result-card" key={index}>
                                     <Link
                                         to={`/info/${encodeURIComponent(result.game)}`}
-                                        className="text-primary underline"
+                                        className="game-name"
                                     >
                                         <h3>{result.game}</h3>
                                     </Link>
