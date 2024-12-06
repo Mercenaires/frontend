@@ -36,14 +36,6 @@ function LandingPage() {
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
-      {/* Header */}
-      <header className="flex justify-between items-center p-6 bg-black">
-        <div className="flex items-center">
-          <img src={logo} alt="Logo" className="w-12 h-12 mr-2" />
-          <h1 className="text-2xl font-bold">MBTInGames</h1>
-        </div>
-      </header>
-
       {/* Hero Section avec blob animé */}
       <section className="relative min-h-screen flex items-center px-10 bg-black overflow-hidden">
         {/* Animated Blob */}

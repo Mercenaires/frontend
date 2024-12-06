@@ -48,27 +48,33 @@ a:hover {
 }
 
 /* Header */
-#header {
-  background-color: #000;
-  color: #ffffff;
-  border-bottom: 1px solid #333;
-  box-shadow: inset 0px -1px 0px 0px #51575a;
+.header {
+  background-color: #1a202c;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #2d3748;
 }
 
-#header h1 {
+.header h1 {
   font-size: 2.5em;
-  margin: 20px;
-}
-
-#header nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1.2em;
-  margin-left: 20px;
-}
-
-#header nav a:hover {
   color: #61dafb;
+  font-weight: bold;
+}
+
+.header nav {
+  margin-top: 10px;
+}
+
+.header nav a {
+  color: #61dafb;
+  margin: 0 15px;
+  font-size: 1.1em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header nav a:hover {
+  color: #ffffff;
 }
 
 /* Banner */
@@ -271,5 +277,148 @@ section {
 .back-button:hover {
   background-color: #555;
   transform: scale(1.05);
+}
+
+.search-bar {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  background-color: #1a202c;
+  color: #fff;
+  font-size: 1em;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #61dafb;
+  box-shadow: 0 0 8px rgba(97, 218, 251, 0.7);
+}
+
+/* Résultats sous forme de cartes */
+.result-card {
+  background-color: #2d3748;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.result-card h3 {
+  color: #61dafb;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.result-card p {
+  color: #fff;
+  font-size: 1em;
+}
+
+/* Grille de cartes */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.md\:grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.lg\:grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Style des cartes MBTI */
+.mbti-card {
+  background-color: #2d3748;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mbti-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.mbti-card h3 {
+  color: #61dafb;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.mbti-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mbti-card li {
+  margin-bottom: 8px;
+}
+
+.mbti-card li a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.mbti-card li a:hover {
+  color: #ffffff;
+}
+
+/* Style des cartes contenant image et nom */
+.game-card {
+  background-color: #2d3748;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Image du jeu */
+.game-image-icon {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nom du jeu */
+.game-name {
+  display: block;
+  padding: 10px 0;
+  font-size: 1.1em;
+  color: #61dafb;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.game-name:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
