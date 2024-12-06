@@ -6,7 +6,7 @@ function GameInfo() {
     const { gameName } = useParams(); // Récupération du paramètre dynamique
     const navigate = useNavigate(); // Hook pour naviguer entre les pages
     const [gameDetails, setGameDetails] = useState(null);
-    const [youtubeVideos, setYoutubeVideos] = useState([]);
+    //const [youtubeVideos, setYoutubeVideos] = useState([]);
     const [error, setError] = useState(null);
 
     const rawgApiKey = 'f3b7234c26f64859a127e93224980a8f';
@@ -103,7 +103,7 @@ function GameInfo() {
             {gameDetails.background_image && (
                 <img
                     src={gameDetails.background_image}
-                    alt={`Image du jeu ${gameDetails.name}`}
+                    alt={gameDetails.name}
                     className="game-image"
                 />
             )}
