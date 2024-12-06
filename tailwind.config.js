@@ -21,8 +21,8 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [import("daisyui")],
   daisyui: {
-    themes: ["light", "night"], // Ajoutez les thèmes ici
+    themes: ["light", "night"],
   },
 };
