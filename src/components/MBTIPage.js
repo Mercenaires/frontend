@@ -9,10 +9,8 @@ function MBTIPage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [gamesWithImages, setGamesWithImages] = useState([]);
 
-
     const RAWG_API_KEY = 'f3b7234c26f64859a127e93224980a8f';
     const RAWG_BASE_URL = 'https://api.rawg.io/api';
-
 
     useEffect(() => {
         fetch(csvFilePath)
@@ -33,19 +31,15 @@ function MBTIPage() {
 
                 setGroupedGames(grouped);
 
-                // Récupérer les images pour tous les jeux
                 const allGames = Object.values(grouped).flat();
                 fetchGameImages(allGames).then(setGamesWithImages);
             });
     }, []);
 
-
-    // Mettre à jour les résultats de recherche
     const handleSearch = (event) => {
         const term = event.target.value.toLowerCase();
         setSearchTerm(term);
 
-        // Filtrer les jeux par le terme de recherche
         const filtered = Object.entries(groupedGames).flatMap(([type, games]) =>
             games
                 .filter((game) => game.toLowerCase().includes(term))
@@ -62,43 +56,39 @@ function MBTIPage() {
                     `${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&search=${encodeURIComponent(game)}`
                 );
                 const data = await response.json();
-                const image = data.results?.[0]?.background_image || ''; // Récupère l'image si disponible
+                const image = data.results?.[0]?.background_image || '';
                 return { game, image };
             })
         );
         return gamesWithImages;
     };
 
-
     return (
-        <div data-theme="night" className="min-h-screen bg-gray-900 text-white p-6">
-            {/* Barre de recherche */}
+        <div className="min-h-screen bg-black dark:bg-white text-white dark:text-black p-6">
             <div className="search-bar mb-8">
                 <input
                     type="text"
                     placeholder="Recherchez un jeu"
                     value={searchTerm}
                     onChange={handleSearch}
-                    className="search-bar-input"
+                    className="w-full p-2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black rounded"
                 />
             </div>
 
-
-            {/* Résultats de recherche */}
             {searchTerm && (
                 <div className="mb-8">
                     <h3 className="text-2xl font-semibold mb-4">Résultats de recherche</h3>
                     {filteredGames.length > 0 ? (
                         <div>
                             {filteredGames.map((result, index) => (
-                                <div className="result-card" key={index}>
+                                <div key={index} className="mb-4">
                                     <Link
                                         to={`/info/${encodeURIComponent(result.game)}`}
-                                        className="game-name"
+                                        className="text-blue-500 hover:underline"
                                     >
-                                        <h3>{result.game}</h3>
+                                        {result.game}
                                     </Link>
-                                    <p>Type: {result.type}</p>
+                                    <p>Type : {result.type}</p>
                                 </div>
                             ))}
                         </div>
@@ -110,24 +100,23 @@ function MBTIPage() {
 
             <h2 className="text-3xl font-bold mb-8">Recommandations de jeux par profil MBTI</h2>
 
-            {/* Liste des jeux par type MBTI */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {Object.entries(groupedGames).map(([type, games]) => (
-                    <div className="mbti-card" key={type}>
-                        <h3 className="text-2xl font-semibold mb-4 text-center">{type}</h3>
-                        <div className="grid grid-cols-4 gap-10">
+                    <div key={type} className="bg-gray-800 dark:bg-gray-300 p-4 rounded">
+                        <h3 className="text-2xl font-semibold text-center mb-4">{type}</h3>
+                        <div className="grid grid-cols-4 gap-4">
                             {gamesWithImages
                                 .filter((gameData) => games.includes(gameData.game))
                                 .map((gameData, index) => (
-                                    <div key={index} className="game-card">
+                                    <div key={index} className="text-center">
                                         <img
                                             src={gameData.image}
                                             alt={gameData.game}
-                                            className="game-image-icon"
+                                            className="w-full h-20 object-cover rounded"
                                         />
                                         <Link
                                             to={`/info/${encodeURIComponent(gameData.game)}`}
-                                            className="game-name"
+                                            className="text-blue-500 hover:underline mt-2 block"
                                         >
                                             {gameData.game}
                                         </Link>
@@ -137,8 +126,6 @@ function MBTIPage() {
                     </div>
                 ))}
             </div>
-
-
         </div>
     );
 }

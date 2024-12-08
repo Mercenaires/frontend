@@ -42,7 +42,6 @@ function GameInfo() {
                 const gameData = detailsResponse.data;
 
                 // Étape 3 : Récupérer les vidéos YouTube (inchangé)
-
                 const youtubeResponse = await axios.get(
                     'https://www.googleapis.com/youtube/v3/search',
                     {
@@ -60,9 +59,7 @@ function GameInfo() {
                     throw new Error('Aucune vidéo trouvée sur YouTube.');
                 }
 
-
                 setYoutubeVideos(youtubeResponse.data.items);
-
                 setGameDetails(gameData);
             } catch (err) {
                 console.error('Erreur complète :', err);
@@ -82,35 +79,51 @@ function GameInfo() {
     }, [gameName, rawgApiKey]);
 
     if (error) {
-        return <div className="error-message">Erreur : {error}</div>;
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-900 dark:bg-gray-100 text-white dark:text-black">
+                Erreur : {error}
+            </div>
+        );
     }
 
     if (!gameDetails) {
-        return <div className="loading-message">Chargement des informations du jeu...</div>;
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-900 dark:bg-gray-100 text-white dark:text-black">
+                Chargement des informations du jeu...
+            </div>
+        );
     }
 
     const platforms = gameDetails.platforms || [];
 
     return (
-        <div className="game-info-container">
+        <div className="min-h-screen bg-black-900 dark:bg-gray-100 text-white dark:text-black p-6">
             {/* Bouton pour revenir à la page précédente */}
-            <button className="back-button" onClick={() => navigate(-1)}>
+            <button
+                className="back-button bg-blue-500 dark:bg-yellow-400 text-white dark:text-black p-2 rounded mb-6"
+                onClick={() => navigate(-1)}
+            >
                 Retour
             </button>
 
-            <h1 className="game-title">{gameDetails.name}</h1>
+            <h1 className="game-title text-4xl font-bold mb-6 text-center">{gameDetails.name}</h1>
             {/* Affichage de l'image du jeu */}
             {gameDetails.background_image && (
                 <img
                     src={gameDetails.background_image}
                     alt={gameDetails.name}
-                    className="game-image"
+                    className="game-image mx-auto mb-6 rounded shadow-md max-h-64 object-contain"
                 />
             )}
-            <p className="game-description">{gameDetails.description_raw || 'Aucune description disponible.'}</p>
 
-            <h2 className="section-title">Configurations système</h2>
-            <ul className="platform-list">
+            <p className="game-description mb-6 text-center">
+                {gameDetails.description_raw || 'Aucune description disponible.'}
+            </p>
+
+            <h2 className="section-title text-2xl font-semibold mb-4 text-white dark:text-black">
+                Configurations système
+            </h2>
+            <ul className="platform-list list-disc list-inside mb-6 px-4">
                 {platforms.map((platformInfo, index) => {
                     const platformName = platformInfo.platform.name || 'Plateforme inconnue';
                     const minimumRequirements = platformInfo.requirements?.minimum || null;
@@ -121,20 +134,23 @@ function GameInfo() {
                     }
 
                     return (
-                        <li key={index} className="platform-item">
-                            <h3>{platformName}</h3>
-                            {minimumRequirements && <p>Configuration minimale : {minimumRequirements}</p>}
-                            {recommendedRequirements && <p>Configuration recommandée : {recommendedRequirements}</p>}
+                        <li key={index} className="platform-item mb-4">
+                            <h3 className="font-semibold">{platformName}</h3>
+                            {minimumRequirements && <p>Minimale : {minimumRequirements}</p>}
+                            {recommendedRequirements && <p>Recommandée : {recommendedRequirements}</p>}
                         </li>
                     );
                 })}
             </ul>
 
-            <h2 className="section-title">Vidéos de gameplay</h2>
-            <ul className="video-list">
+            <h2 className="section-title text-2xl font-semibold mb-4 text-white dark:text-black">
+                Vidéos de gameplay
+            </h2>
+            <ul className="video-list space-y-6">
                 {youtubeVideos.map((video) => (
-                    <li key={video.id.videoId} className="video-item">
+                    <li key={video.id.videoId} className="video-item mx-auto max-w-3xl">
                         <iframe
+                            className="w-full mb-4 rounded"
                             width="560"
                             height="315"
                             src={`https://www.youtube.com/embed/${video.id.videoId}`}
@@ -143,29 +159,12 @@ function GameInfo() {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                         ></iframe>
-                        <p>{video.snippet.title}</p>
+                        <p className="text-center">{video.snippet.title}</p>
                     </li>
                 ))}
             </ul>
-
-
         </div>
     );
-    /*
-    <ul>
-                {youtubeVideos.map((video) => (
-                    <li key={video.id.videoId}>
-                        <a
-                            href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {video.snippet.title}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-     */
 }
 
 export default GameInfo;

@@ -27,10 +27,10 @@ const DarkMode = () => {
       className="text-2xl focus:outline-none transition duration-300 ease-in-out"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "dark" ? (
-        <BiSolidSun className="text-yellow-500" />
-      ) : (
+      {theme === "light" ? (
         <BiSolidMoon className="text-blue-500" />
+      ) : (
+        <BiSolidSun className="text-yellow-500" />
       )}
     </button>
   );
