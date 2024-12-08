@@ -6,7 +6,7 @@ function GameInfo() {
     const { gameName } = useParams(); // Récupération du paramètre dynamique
     const navigate = useNavigate(); // Hook pour naviguer entre les pages
     const [gameDetails, setGameDetails] = useState(null);
-    //const [youtubeVideos, setYoutubeVideos] = useState([]);
+    const [youtubeVideos, setYoutubeVideos] = useState([]);
     const [error, setError] = useState(null);
 
     const rawgApiKey = 'f3b7234c26f64859a127e93224980a8f';
@@ -42,14 +42,14 @@ function GameInfo() {
                 const gameData = detailsResponse.data;
 
                 // Étape 3 : Récupérer les vidéos YouTube (inchangé)
-                /*
+
                 const youtubeResponse = await axios.get(
                     'https://www.googleapis.com/youtube/v3/search',
                     {
                         params: {
                             part: 'snippet',
                             type: 'video',
-                            maxResults: 3,
+                            maxResults: 2,
                             q: `${gameName} trailer`,
                             key: 'AIzaSyC1frLjEwsv07rwB2bYMXErop9qQXNxVYc',
                         },
@@ -62,7 +62,7 @@ function GameInfo() {
 
 
                 setYoutubeVideos(youtubeResponse.data.items);
-                */
+
                 setGameDetails(gameData);
             } catch (err) {
                 console.error('Erreur complète :', err);
@@ -131,7 +131,24 @@ function GameInfo() {
             </ul>
 
             <h2 className="section-title">Vidéos de gameplay</h2>
-            {/* Section des vidéos */}
+            <ul className="video-list">
+                {youtubeVideos.map((video) => (
+                    <li key={video.id.videoId} className="video-item">
+                        <iframe
+                            width="560"
+                            height="315"
+                            src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                            title={video.snippet.title}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                        <p>{video.snippet.title}</p>
+                    </li>
+                ))}
+            </ul>
+
+
         </div>
     );
     /*

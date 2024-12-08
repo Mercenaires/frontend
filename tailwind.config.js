@@ -1,3 +1,5 @@
+import daisyui from "daisyui"; // Importer DaisyUI en tant que module
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"], // Définir les fichiers à scanner
@@ -42,7 +44,7 @@ export default {
     },
   },
   plugins: [
-    require("daisyui"), // Corriger l'import du plugin DaisyUI
+    daisyui, // Utiliser DaisyUI avec import
   ],
   daisyui: {
     themes: ["light", "night"], // Activer les thèmes light et night
