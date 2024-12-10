@@ -39,17 +39,18 @@ function Navbar() {
           <li><a href="#contact" className="hover:text-blue-400">Contact</a></li>
         </ul>
         {/* Bouton Switch Mode */}
-        {theme === "dark" ? (
-          <BiSolidSun
-            className="text-2xl cursor-pointer text-yellow-500"
-            onClick={() => setTheme("light")}
-          />
-        ) : (
-          <BiSolidMoon
-            className="text-2xl cursor-pointer text-blue-500"
-            onClick={() => setTheme("dark")}
-          />
-        )}
+{theme === "dark" ? (
+  <BiSolidMoon
+    className="text-2xl cursor-pointer text-blue-500"
+    onClick={() => setTheme("light")}
+  />
+) : (
+  <BiSolidSun
+    className="text-2xl cursor-pointer text-yellow-500"
+    onClick={() => setTheme("dark")}
+  />
+)}
+
       </div>
     </nav>
   );
