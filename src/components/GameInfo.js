@@ -144,7 +144,7 @@ function GameInfo() {
             </ul>
 
             <h2 className="section-title text-2xl font-semibold mb-4 text-white dark:text-black">
-                Vidéos de gameplay
+                Bande d'annonce du jeu
             </h2>
             <ul className="video-list space-y-6">
                 {youtubeVideos.map((video) => (

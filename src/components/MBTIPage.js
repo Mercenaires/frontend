@@ -100,23 +100,23 @@ function MBTIPage() {
 
             <h2 className="text-3xl font-bold mb-8">Recommandations de jeux par profil MBTI</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                 {Object.entries(groupedGames).map(([type, games]) => (
                     <div key={type} className="bg-gray-800 dark:bg-gray-300 p-4 rounded">
                         <h3 className="text-2xl font-semibold text-center mb-4">{type}</h3>
-                        <div className="grid grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6">
                             {gamesWithImages
                                 .filter((gameData) => games.includes(gameData.game))
                                 .map((gameData, index) => (
-                                    <div key={index} className="text-center">
+                                    <div key={index} className="game-card">
                                         <img
                                             src={gameData.image}
                                             alt={gameData.game}
-                                            className="w-full h-20 object-cover rounded"
+                                            className="game-image-icon"
                                         />
                                         <Link
                                             to={`/info/${encodeURIComponent(gameData.game)}`}
-                                            className="text-blue-500 hover:underline mt-2 block"
+                                            className="game-name"
                                         >
                                             {gameData.game}
                                         </Link>
