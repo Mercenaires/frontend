@@ -476,3 +476,56 @@ section {
   color: #333;
 }
 
+/* Styles pour le filtre des catégories */
+.genre-filter {
+  padding: 20px;
+  background-color: #1a202c;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.genre-filter h3 {
+  font-size: 1.5em;
+  color: #61dafb;
+  margin-bottom: 15px;
+}
+
+.genre-filter .checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.genre-filter .checkbox-item {
+  display: flex;
+  align-items: center;
+  background-color: #2d3748;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.genre-filter .checkbox-item:hover {
+  background-color: #3e495a;
+  transform: translateY(-3px);
+}
+
+.genre-filter input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  accent-color: #61dafb;
+  border-radius: 4px;
+}
+
+.genre-filter label {
+  font-size: 1.2em;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+
+
