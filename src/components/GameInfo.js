@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import de useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function GameInfo() {
-    const { gameName } = useParams(); // Récupération du paramètre dynamique
-    const navigate = useNavigate(); // Hook pour naviguer entre les pages
+    const { gameName } = useParams();
+    const navigate = useNavigate();
     const [gameDetails, setGameDetails] = useState(null);
     const [youtubeVideos, setYoutubeVideos] = useState([]);
     const [error, setError] = useState(null);
+    const [showFullDescription, setShowFullDescription] = useState(false);
 
     const rawgApiKey = 'f3b7234c26f64859a127e93224980a8f';
 
@@ -18,7 +19,6 @@ function GameInfo() {
                     throw new Error("Aucun nom de jeu n'a été fourni.");
                 }
 
-                // Étape 1 : Rechercher le jeu par nom sur RAWG
                 const searchResponse = await axios.get('https://api.rawg.io/api/games', {
                     params: {
                         key: rawgApiKey,
@@ -32,7 +32,6 @@ function GameInfo() {
 
                 const gameId = searchResponse.data.results[0].id;
 
-                // Étape 2 : Récupérer les détails complets du jeu via son ID
                 const detailsResponse = await axios.get(`https://api.rawg.io/api/games/${gameId}`, {
                     params: {
                         key: rawgApiKey
@@ -41,19 +40,15 @@ function GameInfo() {
 
                 const gameData = detailsResponse.data;
 
-                // Étape 3 : Récupérer les vidéos YouTube (inchangé)
-                const youtubeResponse = await axios.get(
-                    'https://www.googleapis.com/youtube/v3/search',
-                    {
-                        params: {
-                            part: 'snippet',
-                            type: 'video',
-                            maxResults: 2,
-                            q: `${gameName} trailer`,
-                            key: 'AIzaSyC1frLjEwsv07rwB2bYMXErop9qQXNxVYc',
-                        },
+                const youtubeResponse = await axios.get('https://www.googleapis.com/youtube/v3/search', {
+                    params: {
+                        part: 'snippet',
+                        type: 'video',
+                        maxResults: 2,
+                        q: `${gameName} trailer`,
+                        key: 'AIzaSyC1frLjEwsv07rwB2bYMXErop9qQXNxVYc',
                     }
-                );
+                });
 
                 if (!youtubeResponse.data.items || youtubeResponse.data.items.length === 0) {
                     throw new Error('Aucune vidéo trouvée sur YouTube.');
@@ -63,15 +58,7 @@ function GameInfo() {
                 setGameDetails(gameData);
             } catch (err) {
                 console.error('Erreur complète :', err);
-                if (err.response) {
-                    console.error('Données erreur :', err.response.data);
-                    console.error('Statut erreur :', err.response.status);
-                } else if (err.request) {
-                    console.error('Pas de réponse :', err.request);
-                } else {
-                    console.error('Erreur lors de la configuration :', err.message);
-                }
-                setError(`Erreur lors de la récupération des vidéos : ${err.response?.data?.error?.message || 'Inconnue.'}`);
+                setError(`Erreur lors de la récupération des données : ${err.message}`);
             }
         };
 
@@ -94,75 +81,107 @@ function GameInfo() {
         );
     }
 
-    const platforms = gameDetails.platforms || [];
+    const platforms = gameDetails.platforms.map(p => p.platform.name).join(', ');
+
+    const truncatedDescription = gameDetails.description
+        ? gameDetails.description.slice(0, 300)
+        : '';
 
     return (
-        <div className="min-h-screen bg-black-900 dark:bg-gray-100 text-white dark:text-black p-6">
-            {/* Bouton pour revenir à la page précédente */}
+        <div
+            className="min-h-screen bg-cover bg-center bg-no-repeat p-8"
+            style={{
+                backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(${gameDetails.background_image})`,
+                backgroundSize: 'cover',
+                backgroundAttachment: 'fixed',
+            }}
+        >
             <button
-                className="back-button bg-blue-500 dark:bg-yellow-400 text-white dark:text-black p-2 rounded mb-6"
+                className="back-button bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg shadow-md mb-6"
                 onClick={() => navigate(-1)}
             >
                 Retour
             </button>
 
-            <h1 className="game-title text-4xl font-bold mb-6 text-center">{gameDetails.name}</h1>
-            {/* Affichage de l'image du jeu */}
-            {gameDetails.background_image && (
-                <img
-                    src={gameDetails.background_image}
-                    alt={gameDetails.name}
-                    className="game-image mx-auto mb-6 rounded shadow-md max-h-64 object-contain"
-                />
-            )}
+            <div className="text-center mb-8">
+                <h1 className="game-title text-5xl font-bold mb-4">{gameDetails.name}</h1>
+                {gameDetails.background_image && (
+                    <img
+                        src={gameDetails.background_image}
+                        alt={gameDetails.name}
+                        className="game-image mx-auto mb-6 rounded-lg shadow-lg max-h-96 object-cover"
+                    />
+                )}
+            </div>
 
-            <p className="game-description mb-6 text-center">
-                {gameDetails.description_raw || 'Aucune description disponible.'}
-            </p>
+            <div className="max-w-4xl mx-auto bg-gray-800 dark:bg-gray-100 text-white dark:text-black p-6 rounded-lg shadow-lg">
+                <h2 className="section-title text-3xl font-semibold mb-4 text-blue-400">
+                    Description du jeu
+                </h2>
+                <div
+                    className="game-description mb-4 p-4 bg-gray-900 dark:bg-gray-200 text-justify rounded-lg shadow-inner overflow-hidden"
+                    style={{
+                        border: '1px solid #4a90e2',
+                        maxHeight: showFullDescription ? 'none' : '200px',
+                        overflow: showFullDescription ? 'visible' : 'hidden',
+                        transition: 'max-height 0.3s ease-in-out',
+                    }}
+                    dangerouslySetInnerHTML={{
+                        __html: showFullDescription
+                            ? gameDetails.description
+                            : `${truncatedDescription}...`
+                    }}
+                ></div>
+                <div className="text-center">
+                    {!showFullDescription ? (
+                        <button
+                            className="text-blue-500 hover:text-blue-700 underline font-semibold"
+                            onClick={() => setShowFullDescription(true)}
+                        >
+                            Voir plus...
+                        </button>
+                    ) : (
+                        <button
+                            className="text-blue-500 hover:text-blue-700 underline font-semibold"
+                            onClick={() => setShowFullDescription(false)}
+                        >
+                            Voir moins
+                        </button>
+                    )}
+                </div>
+            </div>
 
-            <h2 className="section-title text-2xl font-semibold mb-4 text-white dark:text-black">
-                Configurations système
-            </h2>
-            <ul className="platform-list list-disc list-inside mb-6 px-4">
-                {platforms.map((platformInfo, index) => {
-                    const platformName = platformInfo.platform.name || 'Plateforme inconnue';
-                    const minimumRequirements = platformInfo.requirements?.minimum || null;
-                    const recommendedRequirements = platformInfo.requirements?.recommended || null;
+            <div className="max-w-4xl mx-auto mt-8">
+                <h2 className="section-title text-3xl font-semibold mb-4 text-blue-400">
+                    Plateformes disponibles
+                </h2>
+                <p className="bg-gray-900 dark:bg-gray-200 text-white dark:text-black p-4 rounded-lg shadow-inner">
+                    {platforms}
+                </p>
+            </div>
 
-                    if (!minimumRequirements && !recommendedRequirements) {
-                        return null;
-                    }
-
-                    return (
-                        <li key={index} className="platform-item mb-4">
-                            <h3 className="font-semibold">{platformName}</h3>
-                            {minimumRequirements && <p>Minimale : {minimumRequirements}</p>}
-                            {recommendedRequirements && <p>Recommandée : {recommendedRequirements}</p>}
+            <div className="max-w-4xl mx-auto mt-8">
+                <h2 className="section-title text-3xl font-semibold mb-4 text-blue-400">
+                    Bande d'annonce du jeu
+                </h2>
+                <ul className="video-list space-y-6">
+                    {youtubeVideos.map((video) => (
+                        <li key={video.id.videoId} className="video-item mx-auto">
+                            <iframe
+                                className="w-full rounded-lg shadow-md"
+                                width="100%"
+                                height="315"
+                                src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                                title={video.snippet.title}
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                            <p className="text-center mt-2 text-sm font-medium">{video.snippet.title}</p>
                         </li>
-                    );
-                })}
-            </ul>
-
-            <h2 className="section-title text-2xl font-semibold mb-4 text-white dark:text-black">
-                Bande d'annonce du jeu
-            </h2>
-            <ul className="video-list space-y-6">
-                {youtubeVideos.map((video) => (
-                    <li key={video.id.videoId} className="video-item mx-auto max-w-3xl">
-                        <iframe
-                            className="w-full mb-4 rounded"
-                            width="560"
-                            height="315"
-                            src={`https://www.youtube.com/embed/${video.id.videoId}`}
-                            title={video.snippet.title}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                        <p className="text-center">{video.snippet.title}</p>
-                    </li>
-                ))}
-            </ul>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }

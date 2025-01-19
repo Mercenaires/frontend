@@ -37,11 +37,13 @@ function Navbar() {
           <li><a href="#about" className="hover:text-blue-400">À propos</a></li>
           <li><a href="#features" className="hover:text-blue-400">Fonctionnalités</a></li>
           <li><a href="#contact" className="hover:text-blue-400">Contact</a></li>
+          <li><a href="/release" className="hover:text-blue-400">Nouveaux Jeux</a></li>
+
         </ul>
         {/* Bouton Switch Mode */}
-{theme === "dark" ? (
-  <BiSolidMoon
-    className="text-2xl cursor-pointer text-blue-500"
+        {theme === "dark" ? (
+            <BiSolidMoon
+                className="text-2xl cursor-pointer text-blue-500"
     onClick={() => setTheme("light")}
   />
 ) : (
