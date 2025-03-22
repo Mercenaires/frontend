@@ -71,9 +71,7 @@ const SteamProfilePage = () => {
                 )}`
             );
             const games = gamesRes.data.response?.games || [];
-            const sorted = games
-                .filter((g) => g.playtime_forever > 0)
-                .sort((a, b) => b.playtime_forever - a.playtime_forever);
+            const sorted = games.filter((g) => g.playtime_forever > 0).sort((a, b) => b.playtime_forever - a.playtime_forever);
             setTempTopGames(sorted);
             setTimeout(() => setTopGames(sorted), 2000);
 
@@ -137,34 +135,38 @@ const SteamProfilePage = () => {
                 </div>
             )}
 
-            {topGames.length > 0 && (
-                <>
-                    <h3 className="text-5xl text-center mb-4 animate-slide-right">🔥 Jeux les plus joués</h3>
-                    <div className="overflow-hidden w-full">
-                        <div className="flex space-x-6 animate-scroll-x-slow w-max">
-                            {[...topGames, ...topGames].map((game, index) => (
-                                <div key={`${game.appid}-${index}`} onClick={() => handleGameClick(game.name)}>
-                                    <GameCard game={game}/>
-                                </div>
-                            ))}
-                        </div>
+            <h3 className="text-5xl text-center mb-4 animate-slide-right">🔥 Jeux les plus joués</h3>
+            {topGames.length > 0 ? (
+                <div className="overflow-hidden w-full">
+                    <div className="flex space-x-6 animate-scroll-x-slow w-max">
+                        {[...topGames, ...topGames].map((game, index) => (
+                            <div key={`${game.appid}-${index}`} onClick={() => handleGameClick(game.name)}>
+                                <GameCard game={game} />
+                            </div>
+                        ))}
                     </div>
-                </>
+                </div>
+            ) : (
+                <p className="text-5xl text-center font-bold text-red-600 italic mt-4">
+                    ❌ Aucun jeu visible ou ce profil ne permet pas l’accès aux jeux les plus joués.
+                </p>
             )}
 
-            {recentGames.length > 0 && (
-                <>
-                    <h3 className="text-5xl text-center mt-10 mb-4 animate-slide-left">🕘 Jeux récemment joués</h3>
-                    <div className="overflow-hidden w-full">
-                        <div className="flex space-x-6 animate-scroll-x-fast w-max">
-                            {[...recentGames, ...recentGames].map((game, index) => (
-                                <div key={`${game.appid}-${index}`} onClick={() => handleGameClick(game.name)}>
-                                    <GameCard game={game}/>
-                                </div>
-                            ))}
-                        </div>
+            <h3 className="text-5xl text-center mt-10 mb-4 animate-slide-left">🕘 Jeux récemment joués</h3>
+            {recentGames.length > 0 ? (
+                <div className="overflow-hidden w-full">
+                    <div className="flex space-x-6 animate-scroll-x-fast w-max">
+                        {[...recentGames, ...recentGames].map((game, index) => (
+                            <div key={`${game.appid}-${index}`} onClick={() => handleGameClick(game.name)}>
+                                <GameCard game={game} />
+                            </div>
+                        ))}
                     </div>
-                </>
+                </div>
+            ) : (
+                <p className="text-5xl text-center font-bold text-red-600 italic mt-4">
+                    ❌ Aucun jeu récent visible ou ce profil ne permet pas l’accès aux jeux récemment joués.
+                </p>
             )}
         </div>
     );
