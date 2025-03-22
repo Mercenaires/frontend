@@ -7,6 +7,8 @@ import MBTIPage from './components/MBTIPage';
 import CatMBTIGamePage from "./components/CatMBTIGamePage";
 import GameInfo from "./components/GameInfo";
 import ReleasePage from './components/ReleasePage';
+import MbtiTest from './components/MBTITest';
+
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
           <Route path="/catmbtigame" element={<CatMBTIGamePage />} />
           <Route path="/info/:gameName" element={<GameInfo />} />
           <Route path="/release" element={<ReleasePage />} />
+          <Route path="/mbtitest" element={<MbtiTest />} />
       </Routes>
     </Router>
   );
