@@ -7,7 +7,7 @@ import MBTIPage from './components/MBTIPage';
 import CatMBTIGamePage from "./components/CatMBTIGamePage";
 import GameInfo from "./components/GameInfo";
 import ReleasePage from './components/ReleasePage';
-
+import SteamProfilePage from './components/SteamProfilePage';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           <Route path="/catmbtigame" element={<CatMBTIGamePage />} />
           <Route path="/info/:gameName" element={<GameInfo />} />
           <Route path="/release" element={<ReleasePage />} />
+          <Route path="/steam-profile" element={<SteamProfilePage />} />
       </Routes>
     </Router>
   );
