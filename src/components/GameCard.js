@@ -1,4 +1,4 @@
-//Permet d'avoir le nom du jeu ainsi que le temps de jeu.
+// Permet d'avoir le nom du jeu ainsi que le temps de jeu.
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -19,13 +19,17 @@ const GameCard = ({ game }) => {
                 src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${game.appid}/capsule_616x353.jpg`}
                 alt={game.name}
                 className="w-full h-50 object-cover rounded mb-2"
+                onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://cdn.cloudflare.steamstatic.com/steam/apps/10/header.jpg'; // image par défaut
+                }}
             />
             <h3 className="text-xl font-bold text-white truncate">{game.name}</h3>
-            <p className="text-base font-bold text-white-400">Temps joué : {(game.playtime_forever / 60).toFixed(1)} h</p>
-
+            <p className="text-base font-bold text-white-400">
+                Temps joué : {(game.playtime_forever / 60).toFixed(1)} h
+            </p>
         </div>
     );
 };
 
 export default GameCard;
-
