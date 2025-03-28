@@ -71,7 +71,10 @@ const SteamProfilePage = () => {
                 )}`
             );
             const games = gamesRes.data.response?.games || [];
-            const sorted = games.filter((g) => g.playtime_forever > 0).sort((a, b) => b.playtime_forever - a.playtime_forever);
+            const sorted = games
+                .filter((g) => g.playtime_forever > 0)
+                .sort((a, b) => b.playtime_forever - a.playtime_forever)
+                .slice(0, 15); // ⬅️ Limite à 15 jeux
             setTempTopGames(sorted);
             setTimeout(() => setTopGames(sorted), 2000);
 
@@ -80,7 +83,7 @@ const SteamProfilePage = () => {
                     `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key=${STEAM_API_KEY}&steamid=${resolvedId}`
                 )}`
             );
-            const fetchedRecent = recentRes.data.response?.games || [];
+            const fetchedRecent = (recentRes.data.response?.games || []).slice(0, 15);
             setTempRecentGames(fetchedRecent);
             setTimeout(() => setRecentGames(fetchedRecent), 2000);
         } catch (err) {
@@ -94,6 +97,8 @@ const SteamProfilePage = () => {
     const handleGameClick = (gameName) => {
         navigate(`/info/${encodeURIComponent(gameName)}`);
     };
+
+    const getScrollDuration = (count) => `${Math.max(10, count * 3)}s`; // ⬅️ 3s par jeu min 10s
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white p-6 transition-all duration-300">
@@ -138,7 +143,10 @@ const SteamProfilePage = () => {
             <h3 className="text-5xl text-center mb-4 animate-slide-right">🔥 Jeux les plus joués</h3>
             {topGames.length > 0 ? (
                 <div className="overflow-hidden w-full">
-                    <div className="flex space-x-6 animate-scroll-x-slow w-max">
+                    <div
+                        className="flex space-x-6 scroll-x w-max"
+                        style={{ animationDuration: getScrollDuration(topGames.length) }}
+                    >
                         {[...topGames, ...topGames].map((game, index) => (
                             <div key={`${game.appid}-${index}`} onClick={() => handleGameClick(game.name)}>
                                 <GameCard game={game} />
@@ -155,7 +163,10 @@ const SteamProfilePage = () => {
             <h3 className="text-5xl text-center mt-10 mb-4 animate-slide-left">🕘 Jeux récemment joués</h3>
             {recentGames.length > 0 ? (
                 <div className="overflow-hidden w-full">
-                    <div className="flex space-x-6 animate-scroll-x-fast w-max">
+                    <div
+                        className="flex space-x-6 scroll-x w-max"
+                        style={{ animationDuration: getScrollDuration(recentGames.length) }}
+                    >
                         {[...recentGames, ...recentGames].map((game, index) => (
                             <div key={`${game.appid}-${index}`} onClick={() => handleGameClick(game.name)}>
                                 <GameCard game={game} />

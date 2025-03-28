@@ -98,4 +98,12 @@
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
     }
+
+    .scroll-x {
+        animation-name: scrollX;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+
 }
