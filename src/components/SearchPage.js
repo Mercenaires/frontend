@@ -4,40 +4,9 @@ import DarkMode from "./DarkMode";
 function SearchPage() {
   const [gameName, setGameName] = useState("");
   const [videos, setVideos] = useState([]);
-<<<<<<< HEAD
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  // Fetch YouTube videos from the backend API
-  const fetchYouTubeVideos = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch(
-        `http://localhost:8080/api/search-videos?gameName=${encodeURIComponent(
-          gameName
-        )}`
-      );
-      if (!response.ok) {
-        throw new Error("Erreur lors de la récupération des vidéos.");
-      }
-      const data = await response.json();
-      setVideos(
-        data.map((video) => ({ title: video.title, url: video.videoUrl }))
-      );
-    } catch (error) {
-      setError(error.message);
-      setVideos([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-=======
   const [score, setScore] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
->>>>>>> develop
 
   const fetchGameInfo = async () => {
     setLoading(true);
@@ -45,14 +14,6 @@ function SearchPage() {
     setScore(null);
     setVideos([]);
 
-<<<<<<< HEAD
-  return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
-      <h2 className="text-3xl font-bold mb-8 text-center">
-        Recherche de jeu YouTube
-      </h2>
-
-=======
     try {
       const scoreResponse = await fetch(
         `http://localhost:8080/api/game-score?gameName=${encodeURIComponent(
@@ -94,41 +55,21 @@ function SearchPage() {
         <h2 className="text-3xl font-bold mb-8">Recherche de jeu</h2>
         <DarkMode />
       </div>
->>>>>>> develop
       <div className="mb-8 flex justify-center">
         <input
           type="text"
           placeholder="Entrez le nom du jeu"
           value={gameName}
           onChange={(e) => setGameName(e.target.value)}
-<<<<<<< HEAD
-          className="p-2 text-black rounded-l w-1/3"
-        />
-        <button
-          onClick={handleSearch}
-          className="p-2 bg-primary text-white rounded-r"
-=======
           className="p-2 text-black bg-gray-200 rounded-l w-1/3"
         />
         <button
           onClick={handleSearch}
           className="p-2 bg-blue-500 text-white rounded-r"
->>>>>>> develop
         >
           Rechercher
         </button>
       </div>
-<<<<<<< HEAD
-
-      {/* Status messages */}
-      {loading && <p className="text-center mb-4">Chargement des vidéos...</p>}
-      {error && <p className="text-center text-red-500 mb-4">{error}</p>}
-      {!loading && !error && videos.length === 0 && (
-        <p className="text-center mb-4">Aucune vidéo trouvée.</p>
-      )}
-
-      {/* YouTube Videos Section */}
-=======
       {loading && <p className="text-center mb-4">Chargement...</p>}
       {error && <p className="text-center text-red-500 mb-4">{error}</p>}
       {score !== null && (
@@ -136,7 +77,6 @@ function SearchPage() {
           <h3 className="text-xl font-semibold">Score : {score}/5</h3>
         </div>
       )}
->>>>>>> develop
       {videos.length > 0 && (
         <div className="mb-8">
           <h3 className="text-2xl font-semibold mb-4 text-center">

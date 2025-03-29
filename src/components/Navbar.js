@@ -38,10 +38,7 @@ function Navbar() {
           <li><a href="#features" className="hover:text-blue-400">Fonctionnalités</a></li>
           <li><a href="#contact" className="hover:text-blue-400">Contact</a></li>
           <li><a href="/release" className="hover:text-blue-400">Nouveaux Jeux</a></li>
-<<<<<<< HEAD
-=======
           <li><a href="/steam-profile" className="hover:text-blue-400">SteamProfile</a></li>
->>>>>>> develop
 
         </ul>
         {/* Bouton Switch Mode */}
