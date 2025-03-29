@@ -2,3 +2,108 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    /* FADE-IN (déjà présent) */
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out;
+    }
+    .animate-fade-in-slow {
+        animation: fadeIn 1.2s ease-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ZOOM-IN */
+    .animate-zoom-in {
+        animation: zoomIn 0.4s ease-out;
+    }
+    @keyframes zoomIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    /* SLIDE-UP */
+    .animate-slide-up {
+        animation: slideUp 0.6s ease-out;
+    }
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SOFT PULSE (pulsation douce) */
+    .animate-soft-pulse {
+        animation: softPulse 2s ease-in-out infinite;
+    }
+    @keyframes softPulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.03); opacity: 0.9; }
+    }
+
+    /* FADE-IN DELAYED (pour effet cascade) */
+    .animate-fade-in-delay {
+        animation: fadeIn 0.6s ease-out;
+        animation-delay: 0.4s;
+        animation-fill-mode: both;
+    }
+
+    /* FADE-IN LONG (encore plus lent) */
+    .animate-fade-in-long {
+        animation: fadeIn 1.8s ease-out;
+    }
+
+    /* SLIDE-RIGHT (pour entrées latérales) */
+    .animate-slide-right {
+        animation: slideRight 0.6s ease-out;
+    }
+    @keyframes slideRight {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* SLIDE-LEFT */
+    .animate-slide-left {
+        animation: slideLeft 0.6s ease-out;
+    }
+    @keyframes slideLeft {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* BOUNCE-IN */
+    .animate-bounce-in {
+        animation: bounceIn 0.5s ease-out;
+    }
+    @keyframes bounceIn {
+        0% { opacity: 0; transform: scale(0.95); }
+        50% { transform: scale(1.05); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+
+    /* Défilement horizontal lent */
+    .animate-scroll-x-slow {
+        animation: scrollX 350s linear infinite;
+    }
+
+    /* Défilement horizontal rapide */
+    .animate-scroll-x-fast {
+        animation: scrollX 30s linear infinite;
+    }
+
+    @keyframes scrollX {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    .scroll-x {
+        animation-name: scrollX;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+
+}

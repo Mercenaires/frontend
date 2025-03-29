@@ -1,18 +1,41 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaCalendarWeek, FaCalendarDay, FaStar } from "react-icons/fa"; // Import des icônes
 import { Link } from "react-router-dom"; // Import du Link
+=======
+import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { FaCalendarWeek, FaCalendarDay, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
+>>>>>>> develop
 
 function ReleasePage() {
     const [gamesThisWeek, setGamesThisWeek] = useState([]);
     const [gamesLastWeek, setGamesLastWeek] = useState([]);
     const [gamesLast30Days, setGamesLast30Days] = useState([]);
+<<<<<<< HEAD
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     const API_KEY = "f3b7234c26f64859a127e93224980a8f";
     const RAWG_BASE_URL = "https://api.rawg.io/api";
 
+=======
+    const [pageThisWeek, setPageThisWeek] = useState(1);
+    const [pageLastWeek, setPageLastWeek] = useState(1);
+    const [pageLast30Days, setPageLast30Days] = useState(1);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const cache = useRef({}); // Cache local pour stocker les réponses API
+
+    const API_KEY = "f3b7234c26f64859a127e93224980a8f";
+    const RAWG_BASE_URL = "https://api.rawg.io/api";
+
+    const formatDate = (date) => date.toISOString().split("T")[0];
+
+>>>>>>> develop
     useEffect(() => {
         const fetchGames = async () => {
             setLoading(true);
@@ -22,8 +45,11 @@ function ReleasePage() {
                 const thirtyDaysAgo = new Date();
                 thirtyDaysAgo.setDate(today.getDate() - 30);
 
+<<<<<<< HEAD
                 const formatDate = (date) => date.toISOString().split("T")[0];
 
+=======
+>>>>>>> develop
                 const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1));
                 const endOfWeek = new Date(startOfWeek);
                 endOfWeek.setDate(startOfWeek.getDate() + 6);
@@ -33,6 +59,7 @@ function ReleasePage() {
                 const endOfLastWeek = new Date(startOfLastWeek);
                 endOfLastWeek.setDate(startOfLastWeek.getDate() + 6);
 
+<<<<<<< HEAD
                 const [thisWeekResponse, lastWeekResponse, last30DaysResponse] = await Promise.all([
                     axios.get(`${RAWG_BASE_URL}/games`, {
                         params: {
@@ -63,6 +90,53 @@ function ReleasePage() {
                 setGamesThisWeek(thisWeekResponse.data.results);
                 setGamesLastWeek(lastWeekResponse.data.results);
                 setGamesLast30Days(last30DaysResponse.data.results);
+=======
+                // Définir les clés de cache pour chaque requête
+                const cacheKeys = {
+                    thisWeek: `thisWeek-page:${pageThisWeek}`,
+                    lastWeek: `lastWeek-page:${pageLastWeek}`,
+                    last30Days: `last30Days-page:${pageLast30Days}`,
+                };
+
+                // Vérifier le cache avant de faire des appels API
+                const fetchOrCache = async (key, url, params) => {
+                    if (cache.current[key]) {
+                        return cache.current[key]; // Renvoyer les données en cache
+                    }
+                    const response = await axios.get(url, { params });
+                    cache.current[key] = response.data.results; // Stocker la réponse dans le cache
+                    return response.data.results;
+                };
+
+                const [thisWeekGames, lastWeekGames, last30DaysGames] = await Promise.all([
+                    fetchOrCache(cacheKeys.thisWeek, `${RAWG_BASE_URL}/games`, {
+                        key: API_KEY,
+                        dates: `${formatDate(startOfWeek)},${formatDate(endOfWeek)}`,
+                        ordering: "-added",
+                        page_size: 6,
+                        page: pageThisWeek,
+                    }),
+                    fetchOrCache(cacheKeys.lastWeek, `${RAWG_BASE_URL}/games`, {
+                        key: API_KEY,
+                        dates: `${formatDate(startOfLastWeek)},${formatDate(endOfLastWeek)}`,
+                        ordering: "-added",
+                        page_size: 6,
+                        page: pageLastWeek,
+                    }),
+                    fetchOrCache(cacheKeys.last30Days, `${RAWG_BASE_URL}/games`, {
+                        key: API_KEY,
+                        dates: `${formatDate(thirtyDaysAgo)},${formatDate(new Date())}`,
+                        ordering: "-added",
+                        page_size: 6,
+                        page: pageLast30Days,
+                    }),
+                ]);
+
+                // Mettre à jour les états avec les données récupérées
+                setGamesThisWeek(thisWeekGames);
+                setGamesLastWeek(lastWeekGames);
+                setGamesLast30Days(last30DaysGames);
+>>>>>>> develop
             } catch (err) {
                 setError("Erreur lors de la récupération des jeux.");
             } finally {
@@ -71,7 +145,11 @@ function ReleasePage() {
         };
 
         fetchGames();
+<<<<<<< HEAD
     }, []);
+=======
+    }, [pageThisWeek, pageLastWeek, pageLast30Days]);
+>>>>>>> develop
 
     if (loading) return <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">Chargement...</div>;
     if (error) return <div className="min-h-screen flex items-center justify-center bg-gray-900 text-red-500">{error}</div>;
@@ -97,6 +175,28 @@ function ReleasePage() {
         </Link>
     );
 
+<<<<<<< HEAD
+=======
+    const Pagination = ({ currentPage, setPage }) => (
+        <div className="flex justify-center items-center mt-6">
+            <button
+                className="px-4 py-2 mx-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600"
+                onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+            >
+                Précédent
+            </button>
+            <span className="px-4 py-2 mx-2 bg-gray-800 text-white rounded-lg">{currentPage}</span>
+            <button
+                className="px-4 py-2 mx-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600"
+                onClick={() => setPage((prev) => prev + 1)}
+            >
+                Suivant
+            </button>
+        </div>
+    );
+
+>>>>>>> develop
     return (
         <div className="min-h-screen bg-gray-900 text-white p-6">
             <h1 className="text-4xl font-bold mb-12 text-center text-gradient bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
@@ -113,6 +213,10 @@ function ReleasePage() {
                         <GameCard key={game.id} game={game} />
                     ))}
                 </div>
+<<<<<<< HEAD
+=======
+                <Pagination currentPage={pageThisWeek} setPage={setPageThisWeek} />
+>>>>>>> develop
             </section>
 
             <section className="mb-12">
@@ -125,6 +229,10 @@ function ReleasePage() {
                         <GameCard key={game.id} game={game} />
                     ))}
                 </div>
+<<<<<<< HEAD
+=======
+                <Pagination currentPage={pageLastWeek} setPage={setPageLastWeek} />
+>>>>>>> develop
             </section>
 
             <section>
@@ -137,6 +245,10 @@ function ReleasePage() {
                         <GameCard key={game.id} game={game} />
                     ))}
                 </div>
+<<<<<<< HEAD
+=======
+                <Pagination currentPage={pageLast30Days} setPage={setPageLast30Days} />
+>>>>>>> develop
             </section>
         </div>
     );
