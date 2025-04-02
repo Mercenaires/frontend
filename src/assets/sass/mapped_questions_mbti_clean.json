@@ -1,0 +1,542 @@
+[
+    {
+      "texte": "Vous vous faites fréquemment de nouveaux amis.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Les idées complexes et novatrices vous enthousiasment plus que les idées simples et directes.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous vous laissez en général plus facilement convaincre par des émotions qui vous touchent que par des arguments factuels.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vos espaces de vie et de travail sont propres et organisés.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous restez généralement calme, même sous une forte pression.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous trouvez l’idée de réseauter ou de vous promouvoir auprès d’étrangers très intimidante.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous priorisez et planifiez les tâches de manière efficace, les accomplissant souvent bien avant la date limite.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Les histoires et les émotions des gens vous parlent plus fort que les chiffres ou les données.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous aimez recourir à des outils de gestion tels que les calendriers et les listes.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Même une petite erreur peut vous faire douter de vos capacités et de vos connaissances.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous n’avez aucun mal à aller vers quelqu’un que vous trouvez intéressant et à entamer une conversation.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous n’aimez pas particulièrement les discussions portant sur les différentes interprétations des œuvres créatives.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous accordez la priorité aux faits plutôt qu’aux sentiments des gens lorsque vous déterminez une ligne de conduite.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous laissez souvent la journée se dérouler sans aucun programme.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous vous souciez rarement de faire bonne impression auprès des gens que vous rencontrez.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous appréciez participer à des activités en équipe.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous aimez expérimenter des approches nouvelles et non testées.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous attachez plus d’importance à la sensibilité qu’à l’honnêteté.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous êtes en quête permanente de nouvelles expériences et de nouveaux domaines de connaissances à approfondir.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous avez tendance à vous inquiéter que les choses aillent de mal en pis.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous appréciez davantage les passe-temps ou les activités solitaires que ceux et celles en groupe.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous ne vous voyez pas exercer un métier d’écrivain(e) de fiction.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous préconisez des décisions efficaces, même si cela implique de faire abstraction de certains aspects émotionnels.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous préférez vous acquitter de vos tâches avant de vous détendre.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "En cas de désaccord, vous privilégiez la défense de votre point de vue au détriment des sentiments d’autrui.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous attendez généralement que les autres se présentent en premier lors des réunions sociales.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Votre humeur peut changer très rapidement.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous ne vous laissez pas facilement influencer par des arguments émotionnels.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous vous retrouvez souvent à faire les choses à la dernière minute.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous aimez débattre de dilemmes éthiques.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous préférez généralement être entouré que seul.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous vous lassez ou perdez tout intérêt lorsque la discussion devient très théorique.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "En cas de conflit entre les faits et les sentiments, vous suivez généralement votre cœur.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous avez du mal à maintenir un planning de travail ou d’études cohérent.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous remettez rarement en question les choix que vous avez faits.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vos amis vous décriraient comme étant enjoué(e) et extraverti(e).",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous êtes attiré(e) par diverses formes d’expression créative, comme l’écriture.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous fondez généralement vos choix sur des faits objectifs et non pas sur des sentiments.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous aimez dresser une liste de choses à faire au quotidien.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous manquez rarement de confiance en vous.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous évitez de passer des appels téléphoniques.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous aimez découvrir des idées et des points de vue qui ne vous sont pas familiers.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous avez une facilité à établir des liens avec des personnes que vous venez de rencontrer.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Si vos projets viennent à être compromis, votre priorité absolue est de reprendre le fil au plus vite.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous êtes encore préoccupé par des erreurs que vous avez commises il y a longtemps.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous n’aimez pas trop discuter de théories quant à l’avenir du monde.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vos émotions vous contrôlent plus que vous ne les contrôlez.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Lorsque vous prenez des décisions, vous vous souciez davantage de ce que peuvent ressentir les personnes concernées plutôt que de ce qui est le plus logique ou plus efficace.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Votre style de travail personnel s’apparente davantage à des explosions d’énergie spontanées qu’à des d’efforts organisés et cohérents.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Lorsque quelqu’un vous tient en haute estime, vous vous demandez combien de temps il vous faudra pour le décevoir.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous adoreriez avoir un emploi vous obligeant à travailler seul la plupart du temps.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous estimez que la réflexion sur des questions philosophiques abstraites est une perte de temps.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous vous sentez plus attiré(e) par les lieux à l’atmosphère animée que par les lieux calmes et intimes.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Si une décision vous semble juste, vous agissez souvent sans nécessiter davantage de preuves.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous vous sentez souvent submergé.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    },
+    {
+      "texte": "Vous terminez les choses méthodiquement sans brûler les étapes.",
+      "scoreSiDaccord": {
+        "F": 1
+      },
+      "scoreSiPasDaccord": {
+        "T": 1
+      }
+    },
+    {
+      "texte": "Vous préférez les tâches qui nécessitent de trouver des solutions créatives plutôt que de suivre des étapes concrètes.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous vous fiez davantage à votre intuition émotionnelle qu’à votre raisonnement logique au moment de faire un choix.",
+      "scoreSiDaccord": {
+        "J": 1
+      },
+      "scoreSiPasDaccord": {
+        "P": 1
+      }
+    },
+    {
+      "texte": "Vous avez du mal à respecter les délais.",
+      "scoreSiDaccord": {
+        "E": 1
+      },
+      "scoreSiPasDaccord": {
+        "I": 1
+      }
+    },
+    {
+      "texte": "Vous êtes confiant dans le fait que les choses vont s‘arranger pour vous.",
+      "scoreSiDaccord": {
+        "N": 1
+      },
+      "scoreSiPasDaccord": {
+        "S": 1
+      }
+    }
+  ]
