@@ -7,11 +7,12 @@ import MBTIPage from './components/MBTIPage';
 import CatMBTIGamePage from "./components/CatMBTIGamePage";
 import GameInfo from "./components/GameInfo";
 import ReleasePage from './components/ReleasePage';
-
-
 import SteamProfilePage from './components/SteamProfilePage';
 import MbtiTest from './components/MBTITest';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6835ffd215933e940457122b8d44dd355e822bdc
 
 function App() {
   return (
