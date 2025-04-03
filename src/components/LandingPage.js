@@ -80,6 +80,10 @@ function LandingPage() {
           <Link to="/mbti">
             <button className="primary-btn">Découvrir votre profil MBTI</button>
           </Link>
+          <Link to="/mbtitest">
+  <button className="primary-btn">Passer le test MBTI</button>
+</Link>
+
         </div>
       </section>
 
